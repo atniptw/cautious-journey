@@ -1,22 +1,61 @@
-import counter from '../../app/reducers/counter';
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../../app/actions/counter';
+import commit from '../../app/reducers/commit';
+import { ADD_COMMIT } from '../../app/actions/commit';
 
 describe('reducers', () => {
-  describe('counter', () => {
+  describe('commit', () => {
     it('should handle initial state', () => {
-      expect(counter(undefined, {})).toMatchSnapshot();
+      expect(commit(undefined, {})).toEqual({ commits: {} });
     });
 
-    it('should handle INCREMENT_COUNTER', () => {
-      expect(counter(1, { type: INCREMENT_COUNTER })).toMatchSnapshot();
-    });
-
-    it('should handle DECREMENT_COUNTER', () => {
-      expect(counter(1, { type: DECREMENT_COUNTER })).toMatchSnapshot();
+    it('should handle ADD_COMMIT', () => {
+      expect(commit({
+        'commits': {
+          'f14b2b44-151d-11e8-b642-0ed5f89f718b': {
+            userName: 'Test User',
+            date: '2018-02-14T21:00:42-05:00',
+            files: ['example/file/path/file.txt']
+          }
+        }
+      }, {
+        type: ADD_COMMIT,
+        hash: 'e34650fa-176b-11e8-b642-0ed5f89f718b',
+        userName: 'Test User',
+        date: '2018-02-15T21:00:42-05:00',
+        files: ['example/file/path/file2.txt']
+      })).toEqual({'commits': {
+          'f14b2b44-151d-11e8-b642-0ed5f89f718b': {
+            userName: 'Test User',
+            date: '2018-02-14T21:00:42-05:00',
+            files: ['example/file/path/file.txt']
+          },
+          'e34650fa-176b-11e8-b642-0ed5f89f718b': {
+            userName: 'Test User',
+            date: '2018-02-15T21:00:42-05:00',
+            files: ['example/file/path/file2.txt']
+          }
+        }
+      });
     });
 
     it('should handle unknown action type', () => {
-      expect(counter(1, { type: 'unknown' })).toMatchSnapshot();
+      expect(commit({
+        'commits': {
+          'f14b2b44-151d-11e8-b642-0ed5f89f718b': {
+            userName: 'Test User',
+            date: '2018-02-14T21:00:42-05:00',
+            files: ['example/file/path/file.txt']
+          }
+        }
+      }, { type: 'unknown' }))
+      .toEqual({
+        'commits': {
+          'f14b2b44-151d-11e8-b642-0ed5f89f718b': {
+            userName: 'Test User',
+            date: '2018-02-14T21:00:42-05:00',
+            files: ['example/file/path/file.txt']
+          }
+        }
+      });
     });
   });
 });
