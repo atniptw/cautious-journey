@@ -10,8 +10,10 @@
  *
  * @flow
  */
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import MenuBuilder from './menu';
+
+import { Repository } from 'nodegit';
 
 let mainWindow = null;
 
@@ -84,3 +86,31 @@ app.on('ready', async () => {
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
 });
+
+ipcMain.on('request-mainprocess-action', (event, arg) => {
+  console.log(arg);
+
+  if (Repository){
+    Repository.open(arg.repo)
+      .then((repo) => {
+        return repo.getMasterCommit();
+      })
+      .then((firstCommitOnMaster) => {
+        let history = firstCommitOnMaster.history();
+
+        let count = 0;
+
+        history.on('commit', (commit) => {
+          if (++count >= 9) {
+            return;
+          }
+
+          event.sender.send('mainprocess-response', commit.message());
+        });
+
+        history.start();
+      });
+  } else {
+    console.log('Repository not found');
+  }
+})
