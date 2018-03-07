@@ -101,11 +101,25 @@ ipcMain.on('request-mainprocess-action', (event, arg) => {
         let count = 0;
 
         history.on('commit', (commit) => {
-          if (++count >= 9) {
-            return;
-          }
-
-          event.sender.send('mainprocess-response', commit.message());
+          let files = [];
+          commit.getDiff().then((arrayDiff) => {
+            arrayDiff.forEach(diff => {
+              diff.patches().then((arrayConvenientPatch) => {
+                arrayConvenientPatch.forEach(patch => {
+                  files.push(patch.oldFile().path());
+                });
+              }).then(() => {
+                const data = {
+                  hash: commit.sha(),
+                  userName: commit.author().toString(),
+                  date: commit.date(),
+                  files
+                };
+      
+                event.sender.send('mainprocess-response', data);
+              });;
+            });
+          });
         });
 
         history.start();

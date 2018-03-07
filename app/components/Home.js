@@ -2,6 +2,8 @@
 import { remote, ipcRenderer } from 'electron';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import addCommit from '../actions/commit'
 import { Link } from 'react-router-dom';
 import styles from './Home.css';
 
@@ -14,10 +16,14 @@ export default class Home extends React.Component {
 
     this.openDialog = this.openDialog.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleMainProcessResponse = this.handleMainProcessResponse.bind(this);
     
-    ipcRenderer.on('mainprocess-response', (event, arg) => {
-      console.log(arg);
-    })
+    ipcRenderer.on('mainprocess-response', this.handleMainProcessResponse);
+  }
+  
+  handleMainProcessResponse(event, commit) {
+    const { addCommit } = this.props;
+    addCommit(commit);
   }
 
   handleSubmit(event) {
@@ -55,3 +61,7 @@ export default class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  addCommit: PropTypes.func.isRequired
+};
