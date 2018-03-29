@@ -17,7 +17,7 @@ export default class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMainProcessResponse = this.handleMainProcessResponse.bind(this);
     
-    ipcRenderer.on('mainprocess-response', this.handleMainProcessResponse);
+    ipcRenderer.on('parse-repository-response', this.handleMainProcessResponse);
   }
   
   handleMainProcessResponse(event, commit) {
@@ -28,7 +28,7 @@ export default class Home extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = { repo: this.state.value };
-    ipcRenderer.send('request-mainprocess-action', data );
+    ipcRenderer.send('request-repository-parse', data );
   }
 
   openDialog() {

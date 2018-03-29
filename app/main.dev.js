@@ -87,7 +87,7 @@ app.on('ready', async () => {
   menuBuilder.buildMenu();
 });
 
-ipcMain.on('request-mainprocess-action', (event, arg) => {
+ipcMain.on('request-repository-parse', (event, arg) => {
   console.log(arg);
 
   if (Repository){
@@ -116,7 +116,7 @@ ipcMain.on('request-mainprocess-action', (event, arg) => {
                   files
                 };
       
-                event.sender.send('mainprocess-response', data);
+                event.sender.send('parse-repository-response', data);
               });;
             });
           });
