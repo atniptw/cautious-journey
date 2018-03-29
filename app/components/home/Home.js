@@ -3,7 +3,6 @@ import { remote, ipcRenderer } from 'electron';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import addCommit from '../actions/commit'
 import { Link } from 'react-router-dom';
 import styles from './Home.css';
 

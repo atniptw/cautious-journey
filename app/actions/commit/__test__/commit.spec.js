@@ -1,4 +1,4 @@
-import * as actions from '../../app/actions/commit';
+import * as actions from '../Commit';
 
 describe('actions', () => {
   it('should increment should create increment action', () => {

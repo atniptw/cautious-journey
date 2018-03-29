@@ -1,11 +1,8 @@
-import { spy } from 'sinon';
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
 import Commit from '../Commit';
 
+import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
@@ -19,7 +16,7 @@ function setup() {
 }
 
 describe('Commit component', () => {
-  it('should should display commit', () => {
+  it('should display commit', () => {
     const component = setup();
     expect(component).toMatchSnapshot();
   });
