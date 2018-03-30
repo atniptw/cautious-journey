@@ -1,6 +1,6 @@
 // @flow
 import { combineReducers } from 'redux';
-import { ADD_COMMIT } from '../actions/commit';
+import { ADD_COMMIT } from '../../actions/commit';
 
 function commits(state: commit = {}, action) {
   switch (action.type) {

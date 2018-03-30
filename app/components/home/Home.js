@@ -54,7 +54,7 @@ export default class Home extends React.Component {
             </label>
             <button onClick={this.openDialog}>Open</button>
           </form>
-          <Link to="/commit">to Counter</Link>
+          <Link to="/landingPage">to Counter</Link>
         </div>
       </div>
     );
