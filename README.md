@@ -29,6 +29,7 @@ A boilerplate for Scalable Cross-Platform Desktop Apps based on  <a href="http:/
 <a href="http://eslint.org/"><img src="./internals/img/eslint-padded-90.png" /></a>
 <a href="https://facebook.github.io/jest/"><img src="./internals/img/jest-padded-90.png" /></a>
 <a href="https://yarnpkg.com/"><img src="./internals/img/yarn-padded-90.png" /></a>
+
 </div>
 
 <hr>
@@ -43,11 +44,13 @@ A boilerplate for Scalable Cross-Platform Desktop Apps based on  <a href="http:/
 [![Join the chat at https://gitter.im/electron-react-boilerplate/Lobby](https://badges.gitter.im/electron-react-boilerplate/Lobby.svg)](https://gitter.im/electron-react-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![OpenCollective](https://opencollective.com/electron-react-boilerplate/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/electron-react-boilerplate/sponsors/badge.svg)](#sponsors)
+
 </div>
 
 <div align="center">
 
 ![Electron Boilerplate Demo](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
+
 </div>
 
 ## Install
@@ -199,19 +202,5 @@ git pull boilerplate master
 ```
 
 ## License
-<<<<<<< HEAD
+
 MIT
-=======
-
-MIT © [C. T. Lin](https://github.com/chentsulin)
-
-[npm-image]: https://img.shields.io/npm/v/electron-react-boilerplate.svg?style=flat-square
-[github-tag-image]: https://img.shields.io/github/tag/chentsulin/electron-react-boilerplate.svg
-[github-tag-url]: https://github.com/chentsulin/electron-react-boilerplate/releases/latest
-[travis-image]: https://travis-ci.org/chentsulin/electron-react-boilerplate.svg?branch=master
-[travis-url]: https://travis-ci.org/chentsulin/electron-react-boilerplate
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/github/chentsulin/electron-react-boilerplate?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/chentsulin/electron-react-boilerplate/branch/master
-[david_img]: https://img.shields.io/david/chentsulin/electron-react-boilerplate.svg
-[david_site]: https://david-dm.org/chentsulin/electron-react-boilerplate
->>>>>>> 2c37e738fd45fd4826256fa62e7876fefe9e36b1
