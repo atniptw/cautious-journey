@@ -39,12 +39,17 @@ const configureStore = (initialState) => {
   // Redux DevTools Configuration
   const actionCreators = {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ...commitActions,
     ...routerActions,
 =======
     ...counterActions,
     ...routerActions
 >>>>>>> 2c37e738fd45fd4826256fa62e7876fefe9e36b1
+=======
+    ...commitActions,
+    ...routerActions,
+>>>>>>> db0a6acf3856de7877faa4d05ed11fae9dce6d26
   };
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle */
