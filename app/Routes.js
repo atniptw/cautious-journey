@@ -9,13 +9,8 @@ import LandingPage from './containers/LandingPage';
 export default () => (
   <App>
     <Switch>
-<<<<<<< HEAD:app/routes.js
-      <Route path="/landingPage" component={LandingPage} />
-      <Route path="/" component={HomePage} />
-=======
-      <Route path={routes.COUNTER} component={CounterPage} />
+      <Route path={LANDING_PAGE} component={LandingPage} />
       <Route path={routes.HOME} component={HomePage} />
->>>>>>> 2c37e738fd45fd4826256fa62e7876fefe9e36b1:app/Routes.js
     </Switch>
   </App>
 );
